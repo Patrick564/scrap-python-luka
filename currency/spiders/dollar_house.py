@@ -1,5 +1,7 @@
 import scrapy
 
+from datetime import datetime
+
 
 class DollarHouseSpider(scrapy.Spider):
     name = 'dollar_house'
@@ -12,7 +14,8 @@ class DollarHouseSpider(scrapy.Spider):
 
         dollar_house = {
             'sell': sell_price,
-            'buy': buy_price
+            'buy': buy_price,
+            'response_time': datetime.now()
         }
 
         return dollar_house

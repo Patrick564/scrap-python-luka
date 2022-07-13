@@ -1,5 +1,7 @@
 import scrapy
 
+from datetime import datetime
+
 
 class CambiSpider(scrapy.Spider):
     name = 'cambi'
@@ -11,7 +13,8 @@ class CambiSpider(scrapy.Spider):
 
         cambi = {
             'sell': extract_price[1],
-            'buy': extract_price[0]
+            'buy': extract_price[0],
+            'response_time': datetime.now()
         }
 
         return cambi

@@ -1,5 +1,7 @@
 import scrapy, re
 
+from datetime import datetime
+
 
 class InkaMoneySpider(scrapy.Spider):
     name = 'inka_money'
@@ -12,7 +14,8 @@ class InkaMoneySpider(scrapy.Spider):
 
         inka_money = {
             'sell': extract_price[1],
-            'buy': extract_price[0]
+            'buy': extract_price[0],
+            'response_time': datetime.now()
         }
 
         return inka_money

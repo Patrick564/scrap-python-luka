@@ -1,5 +1,7 @@
 import scrapy
 
+from datetime import datetime
+
 
 class RextieSpider(scrapy.Spider):
     name = 'rextie'
@@ -12,7 +14,8 @@ class RextieSpider(scrapy.Spider):
 
         rextie = {
             'sell': sell_price,
-            'buy': buy_price
+            'buy': buy_price,
+            'response_time': datetime.now()
         }
 
         return rextie
