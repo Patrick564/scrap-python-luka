@@ -1,4 +1,4 @@
-import scrapy
+import scrapy, tempfile
 from scrapy.crawler import CrawlerProcess
 
 from datetime import datetime
@@ -23,8 +23,9 @@ class CambiSpider(scrapy.Spider):
 
 if __name__ == '__main__':
     process = CrawlerProcess(settings={
-        'FEED_FORMAT': 'jsonlines',
-        'FEED_URI': 'cambi.jsonl'
+        'FEEDS': {
+            f'{tempfile.gettempdir()}/cambi.jsonl': { 'format': 'jsonlines' }
+        }
     })
 
     process.crawl(CambiSpider)

@@ -1,4 +1,4 @@
-import scrapy, re
+import scrapy, re, tempfile
 from scrapy.crawler import CrawlerProcess
 
 from datetime import datetime
@@ -24,8 +24,9 @@ class InkaMoneySpider(scrapy.Spider):
 
 if __name__ == '__main__':
     process = CrawlerProcess(settings={
-        'FEED_FORMAT': 'jsonlines',
-        'FEED_URI': 'cambi.jsonl'
+        'FEEDS': {
+            f'{tempfile.gettempdir()}/inka_money.jsonl': { 'format': 'jsonlines' }
+        }
     })
 
     process.crawl(InkaMoneySpider)
