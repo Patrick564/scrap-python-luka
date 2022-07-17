@@ -1,4 +1,5 @@
 import scrapy
+from scrapy.crawler import CrawlerProcess
 
 from datetime import datetime
 
@@ -19,3 +20,13 @@ class DollarHouseSpider(scrapy.Spider):
         }
 
         return dollar_house
+
+
+if __name__ == '__main__':
+    process = CrawlerProcess(settings={
+        'FEED_FORMAT': 'jsonlines',
+        'FEED_URI': 'cambi.jsonl'
+    })
+
+    process.crawl(DollarHouseSpider)
+    process.start()

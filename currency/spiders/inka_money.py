@@ -1,4 +1,5 @@
 import scrapy, re
+from scrapy.crawler import CrawlerProcess
 
 from datetime import datetime
 
@@ -19,3 +20,13 @@ class InkaMoneySpider(scrapy.Spider):
         }
 
         return inka_money
+
+
+if __name__ == '__main__':
+    process = CrawlerProcess(settings={
+        'FEED_FORMAT': 'jsonlines',
+        'FEED_URI': 'cambi.jsonl'
+    })
+
+    process.crawl(InkaMoneySpider)
+    process.start()

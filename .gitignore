@@ -1,4 +1,8 @@
 __pycache__
 
-*.json
 *.jsonl
+
+/.python_packages
+/.venv
+
+/.vscode

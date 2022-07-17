@@ -1,4 +1,5 @@
 import scrapy
+from scrapy.crawler import CrawlerProcess
 
 from datetime import datetime
 
@@ -19,3 +20,13 @@ class RextieSpider(scrapy.Spider):
         }
 
         return rextie
+
+
+if __name__ == '__main__':
+    process = CrawlerProcess(settings={
+        'FEED_FORMAT': 'jsonlines',
+        'FEED_URI': 'cambi.jsonl'
+    })
+
+    process.crawl(RextieSpider)
+    process.start()
