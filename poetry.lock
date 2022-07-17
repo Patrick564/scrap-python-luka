@@ -45,6 +45,17 @@ six = "*"
 visualize = ["graphviz (>0.5.1)", "Twisted (>=16.1.1)"]
 
 [[package]]
+name = "azure-functions"
+version = "1.11.2"
+description = "Azure Functions for Python"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+dev = ["flake8 (>=4.0.1,<4.1.0)", "mypy", "pytest", "pytest-cov", "requests (>=2.0.0,<3.0.0)", "coverage"]
+
+[[package]]
 name = "certifi"
 version = "2022.6.15"
 description = "Python package for providing Mozilla's CA Bundle."
@@ -645,12 +656,16 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "fcff61f8609c798ab0999ae01eec17adb9da2a5e06df1256749ee87b8ed53cc8"
+content-hash = "fa2699df8e196228c00c8e6dcc1e16df0f5ba61657666d25e4e776b344209e26"
 
 [metadata.files]
 anyio = []
 attrs = []
 automat = []
+azure-functions = [
+    {file = "azure-functions-1.11.2.tar.gz", hash = "sha256:a4bca1b650810c1063140fef8d9d51fb1837f869e48fbf8869ff9eee642c42f4"},
+    {file = "azure_functions-1.11.2-py3-none-any.whl", hash = "sha256:db5730aad1b3eb6716790d593935abb5b49d2690bb446f2b4b83d91f3195f2f3"},
+]
 certifi = []
 cffi = []
 charset-normalizer = []
