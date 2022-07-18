@@ -1,15 +1,16 @@
-import json, tempfile, subprocess
+import json, tempfile
 
 from typing import List
+
+from ..utils.decorators import refresh_if_past_time
 
 
 TMP_DIR: str = tempfile.gettempdir()
 
 
+@refresh_if_past_time
 def get_currency_data(file_name: str = '') -> List[str]:
     values: List[str] = []
-
-    subprocess.run(['python3', f'./currency/spiders/{file_name}.py'])
 
     with open(f'{TMP_DIR}/{file_name}.jsonl', 'r') as f:
         for field in f:
